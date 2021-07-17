@@ -2,6 +2,8 @@ import { Box, BoxProps } from '@chakra-ui/react'
 import Image from 'next/image'
 import { FunctionComponent, memo } from 'react'
 
+const GUTTER_SIZE = [5, 10, 20, 35]
+
 export interface MasonryProps {
   images: {
     filename: string
@@ -16,17 +18,17 @@ const Masonry: FunctionComponent<MasonryProps & BoxProps> = ({
   <Box
     {...rest}
     sx={{
-      columnCount: [1, 2, 3, 4],
-      columnGap: 20,
+      columnCount: [2, 3, 4],
+      columnGap: GUTTER_SIZE,
     }}
   >
     {images.map((image) => (
       <Box
         key={image.filename}
         display="inline-block"
-        marginBottom={20}
+        marginBottom={GUTTER_SIZE}
         marginLeft={0}
-        marginRight={20}
+        marginRight={GUTTER_SIZE}
         marginTop={0}
         width="100%"
       >
