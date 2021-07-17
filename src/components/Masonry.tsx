@@ -1,4 +1,4 @@
-import { Box, BoxProps } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Image from 'next/image'
 import { FunctionComponent, memo } from 'react'
 
@@ -11,12 +11,11 @@ export interface MasonryProps {
   }[]
 }
 
-const Masonry: FunctionComponent<MasonryProps & BoxProps> = ({
-  images,
-  ...rest
-}) => (
+const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
   <Box
     {...rest}
+    maxWidth={1750}
+    mx="auto"
     sx={{
       columnCount: [2, 3, 4],
       columnGap: GUTTER_SIZE,
