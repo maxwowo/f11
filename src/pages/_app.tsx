@@ -1,5 +1,5 @@
-import '@fontsource/abel/400.css'
-import '@fontsource/source-code-pro/300.css'
+import '@fontsource/abel'
+import '@fontsource/source-code-pro'
 
 import { ChakraProvider } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'

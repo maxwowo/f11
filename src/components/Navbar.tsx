@@ -1,7 +1,28 @@
-import { Box, Flex, Icon, Link, Spacer, Text } from '@chakra-ui/react'
+import { Box, Flex, Link, Spacer, Text } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { FunctionComponent } from 'react'
-import { FaInstagram } from 'react-icons/fa'
+
+const NAVBAR_ITEMS: {
+  name: string
+  link: string
+}[] = [
+  {
+    name: 'Landscape',
+    link: '/landscape',
+  },
+  {
+    name: 'Astro',
+    link: '/astro',
+  },
+  {
+    name: 'Street',
+    link: '/street',
+  },
+  {
+    name: 'Portrait',
+    link: '/portrait',
+  },
+]
 
 const Navbar: FunctionComponent = () => (
   <Box>
@@ -12,9 +33,18 @@ const Navbar: FunctionComponent = () => (
         </Link>
       </Text>
       <Spacer />
-      <Link isExternal href="https://www.instagram.com/maxwowowowo">
-        <Icon as={FaInstagram} />
-      </Link>
+      {NAVBAR_ITEMS.map((item) => (
+        <Text
+          key={item.link}
+          fontFamily="Source Code Pro"
+          fontSize="md"
+          ml="5vw"
+        >
+          <Link as={NextLink} href={item.link}>
+            {item.name}
+          </Link>
+        </Text>
+      ))}
     </Flex>
   </Box>
 )
