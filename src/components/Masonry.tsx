@@ -18,7 +18,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
     mx="auto"
     p="4vw"
     sx={{
-      columnCount: [2, 3, 4],
+      columnCount: [2, 2, 3, 4],
       columnGap: GUTTER_SIZE,
     }}
   >
