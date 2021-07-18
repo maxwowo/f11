@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo'
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 
 import Masonry from '../components/Masonry'
 import Navbar from '../components/Navbar'
