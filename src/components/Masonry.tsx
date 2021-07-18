@@ -27,6 +27,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
         key={image.filename}
         alt={image.description}
         display="inline-block"
+        loading="lazy"
         mb={GUTTER_SIZE}
         ml={0}
         mr={GUTTER_SIZE}
