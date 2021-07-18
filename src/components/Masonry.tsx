@@ -14,7 +14,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
   <Box
     {...rest}
     mx="auto"
-    padding="4vw"
+    p="4vw"
     sx={{
       columnCount: [2, 3, 4],
       columnGap: GUTTER_SIZE,
@@ -25,10 +25,10 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
         key={image.filename}
         alt={image.description}
         display="inline-block"
-        marginBottom={GUTTER_SIZE}
-        marginLeft={0}
-        marginRight={GUTTER_SIZE}
-        marginTop={0}
+        mb={GUTTER_SIZE}
+        ml={0}
+        mr={GUTTER_SIZE}
+        mt={0}
         src={image.filename}
         // src={`/api/images/${image.filename}`}
         width="100%"
