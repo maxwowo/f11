@@ -1,4 +1,4 @@
-import { Box, Image as ChakraImage } from '@chakra-ui/react'
+import { Box, Image as ChakraImage, Link } from '@chakra-ui/react'
 import { FunctionComponent, memo } from 'react'
 
 import { Image } from '../images'
@@ -19,20 +19,22 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
       columnGap: GUTTER_SIZE,
     }}
   >
-    {images.map((image, i) => (
-      <ChakraImage
-        key={image.filename}
-        alt={image.description}
-        cursor="pointer"
-        display="inline-block"
-        mb={GUTTER_SIZE}
-        ml={0}
-        mr={GUTTER_SIZE}
-        mt={0}
-        src={image.filename}
-        // src={`/api/images/${image.filename}`}
-        width="100%"
-      />
+    {images.map((image) => (
+      // TODO: change image.filename to /api/images/${image.filename}
+      <Link key={image.filename} isExternal href={image.filename}>
+        <ChakraImage
+          alt={image.description}
+          cursor="pointer"
+          display="inline-block"
+          mb={GUTTER_SIZE}
+          ml={0}
+          mr={GUTTER_SIZE}
+          mt={0}
+          src={image.filename}
+          // src={`/api/images/${image.filename}`}
+          width="100%"
+        />
+      </Link>
     ))}
   </Box>
 )
