@@ -1,8 +1,7 @@
-import { Box } from '@chakra-ui/react'
-import Image from 'next/image'
+import { Box, Image } from '@chakra-ui/react'
 import { FunctionComponent, memo } from 'react'
 
-const GUTTER_SIZE = [5, 10, 20, 35]
+const GUTTER_SIZE = ['5px', '10px', '20px', '35px']
 
 export interface MasonryProps {
   images: {
@@ -14,29 +13,26 @@ export interface MasonryProps {
 const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
   <Box
     {...rest}
-    maxWidth={1750}
     mx="auto"
+    padding="4vw"
     sx={{
       columnCount: [2, 3, 4],
       columnGap: GUTTER_SIZE,
     }}
   >
     {images.map((image) => (
-      <Box
+      <Image
         key={image.filename}
+        alt={image.description}
         display="inline-block"
         marginBottom={GUTTER_SIZE}
         marginLeft={0}
         marginRight={GUTTER_SIZE}
         marginTop={0}
+        src={image.filename}
+        // src={`/api/images/${image.filename}`}
         width="100%"
-      >
-        <Image
-          alt={image.description}
-          layout="fill"
-          src={`/api/images/${image.filename}`}
-        />
-      </Box>
+      />
     ))}
   </Box>
 )
