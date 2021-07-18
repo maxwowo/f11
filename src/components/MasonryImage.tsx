@@ -4,19 +4,19 @@ import { FunctionComponent, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 const MasonryImage: FunctionComponent<ImageProps> = ({ children, ...rest }) => {
-  const animationControls = useAnimation()
+  const animation = useAnimation()
   const [ref, isInView] = useInView()
 
   useEffect(() => {
     if (isInView) {
-      animationControls.start('visible')
+      animation.start('visible')
     }
-  }, [animationControls, isInView])
+  }, [animation, isInView])
 
   return (
     <motion.div
       ref={ref}
-      animate={animationControls}
+      animate={animation}
       initial="hidden"
       variants={{
         visible: {
