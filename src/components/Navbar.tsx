@@ -39,9 +39,13 @@ const Navbar: FunctionComponent = () => {
         {NAVBAR_ITEMS.map((item) => (
           <Text
             key={item.link}
-            as={router.pathname === item.link ? 'u' : undefined}
+            backgroundImage="linear-gradient(to right, currentColor 100%, currentColor 0)"
+            backgroundPosition="0 calc(100% - 0.1em)"
+            backgroundRepeat="repeat-x"
+            backgroundSize={router.pathname === item.link ? '1px 1px' : '0 0'}
             fontFamily="Source Code Pro"
             fontSize="md"
+            padding="0.2em 0"
           >
             <Link as={NextLink} href={item.link}>
               {item.name}
