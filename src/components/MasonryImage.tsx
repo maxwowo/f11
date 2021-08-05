@@ -27,7 +27,7 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({ image }) => {
       animate={controls}
       initial="hidden"
       transition={{
-        duration: 0.4,
+        duration: 0.5,
       }}
       variants={{
         visible: { opacity: 1, y: 0 },
