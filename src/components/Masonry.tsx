@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react'
-import NextImage from 'next/image'
 import { FunctionComponent, memo } from 'react'
 
 import { Image } from '../images'
+import MasonryImage from './MasonryImage'
 
 const GUTTER_SIZE = [5, 10, 20, 35]
 
@@ -28,14 +28,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
         fontSize={0}
         mb={GUTTER_SIZE.map((size) => `${size}px`)}
       >
-        {/* TODO: change image.filename to /api/images/${image.filename} */}
-        <NextImage
-          alt={image.description}
-          height={image.height}
-          // src={`/api/images/${image.filename}`}
-          src={image.filename}
-          width={image.width}
-        />
+        <MasonryImage image={image} />
       </Box>
     ))}
   </Box>
