@@ -8,7 +8,7 @@ import images, { Tag } from '../images'
 
 const Landscape: NextPage = () => (
   <Fragment>
-    <NextSeo canonical="https://studio.maxwowo.com/landscape" title="TT" />
+    <NextSeo canonical="https://f11.maxwowo.com/landscape" title="f/11" />
     <Navbar />
     <Masonry images={images.filter((image) => Tag.LANDSCAPE in image.tags)} />
   </Fragment>

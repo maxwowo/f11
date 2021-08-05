@@ -7,7 +7,7 @@ import images from '../images'
 
 const Index = () => (
   <Fragment>
-    <NextSeo canonical="https://studio.maxwowo.com" title="TT" />
+    <NextSeo canonical="https://f11.maxwowo.com" title="f/11" />
     <Navbar />
     <Masonry images={images} />
   </Fragment>

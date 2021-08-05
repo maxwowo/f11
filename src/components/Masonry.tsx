@@ -1,9 +1,10 @@
-import { Box, Image as ChakraImage, Link } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
+import NextImage from 'next/image'
 import { FunctionComponent, memo } from 'react'
 
 import { Image } from '../images'
 
-const GUTTER_SIZE = ['5px', '10px', '20px', '35px']
+const GUTTER_SIZE = [5, 10, 20, 35]
 
 export interface MasonryProps {
   images: Image[]
@@ -16,25 +17,26 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => (
     p="4vw"
     sx={{
       columnCount: [2, 2, 3, 4],
-      columnGap: GUTTER_SIZE,
+      columnGap: GUTTER_SIZE.map((size) => `${size}px`),
     }}
   >
     {images.map((image) => (
-      // TODO: change image.filename to /api/images/${image.filename}
-      <Link key={image.filename} isExternal href={image.filename}>
-        <ChakraImage
+      <Box
+        key={image.filename}
+        // TODO: remove this hack that neutralizes the extra whitespace added by NextImage's `display: inline` once a
+        // better fix is found
+        fontSize={0}
+        mb={GUTTER_SIZE.map((size) => `${size}px`)}
+      >
+        {/* TODO: change image.filename to /api/images/${image.filename} */}
+        <NextImage
           alt={image.description}
-          cursor="pointer"
-          display="inline-block"
-          mb={GUTTER_SIZE}
-          ml={0}
-          mr={GUTTER_SIZE}
-          mt={0}
-          src={image.filename}
+          height={image.height}
           // src={`/api/images/${image.filename}`}
-          width="100%"
+          src={image.filename}
+          width={image.width}
         />
-      </Link>
+      </Box>
     ))}
   </Box>
 )
