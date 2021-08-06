@@ -38,12 +38,13 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
       <Modal isCentered isOpen={isOpen} onClose={() => selectImage(null)}>
         <ModalOverlay />
         <ModalContent margin={0} maxWidth="unset" width="unset">
-          {selectedImage === null ? null : (
+          {selectedImage && (
             <NextImage
-              height={selectedImage?.height}
+              alt={selectedImage.description}
+              height={selectedImage.height}
               quality={100}
-              src={selectedImage?.filename}
-              width={selectedImage?.width}
+              src={selectedImage.filename}
+              width={selectedImage.width}
             />
           )}
         </ModalContent>
