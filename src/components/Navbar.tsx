@@ -12,12 +12,12 @@ const NAVBAR_ITEMS: {
     link: '/landscape',
   },
   {
-    name: 'Astro',
-    link: '/astro',
+    name: 'Urban',
+    link: '/urban',
   },
   {
-    name: 'Street',
-    link: '/street',
+    name: 'Rural',
+    link: '/rural',
   },
   {
     name: 'Portrait',

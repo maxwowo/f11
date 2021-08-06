@@ -35,6 +35,7 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({ image }) => {
       }}
     >
       <Box
+        cursor="zoom-in"
         // TODO: remove this hack that neutralizes the extra whitespace added by NextImage's `display: inline` once a
         // better fix is found
         fontSize={0}

@@ -1,7 +1,7 @@
 export enum Tag {
   LANDSCAPE,
-  ASTRO,
-  STREET,
+  URBAN,
+  RURAL,
   PORTRAIT,
 }
 
