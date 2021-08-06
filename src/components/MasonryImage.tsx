@@ -9,9 +9,13 @@ import { GUTTER_SIZE } from './Masonry'
 
 export interface MasonryImageProps {
   image: Image
+  handleImageSelect: (image: Image | null) => void
 }
 
-const MasonryImage: FunctionComponent<MasonryImageProps> = ({ image }) => {
+const MasonryImage: FunctionComponent<MasonryImageProps> = ({
+  image,
+  handleImageSelect,
+}) => {
   const controls = useAnimation()
   const [ref, inView] = useInView()
 
@@ -40,10 +44,12 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({ image }) => {
         // better fix is found
         fontSize={0}
         mb={GUTTER_SIZE.map((size) => `${size}px`)}
+        onClick={() => handleImageSelect(image)}
       >
         <NextImage
           alt={image.description}
           height={image.height}
+          quality={50}
           // src={`/api/images/${image.filename}`}
           src={image.filename}
           width={image.width}
