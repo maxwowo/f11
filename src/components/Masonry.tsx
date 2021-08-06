@@ -1,11 +1,11 @@
 import {
   Box,
+  Image as ChakraImage,
   Modal,
   ModalContent,
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react'
-import NextImage from 'next/image'
 import { Fragment, FunctionComponent, memo, useEffect, useState } from 'react'
 
 import { Image } from '../images'
@@ -39,12 +39,10 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
         <ModalOverlay />
         <ModalContent margin={0} maxWidth="unset" width="unset">
           {selectedImage && (
-            <NextImage
+            <ChakraImage
               alt={selectedImage.description}
-              height={selectedImage.height}
-              quality={100}
+              maxHeight="95vh"
               src={selectedImage.filename}
-              width={selectedImage.width}
             />
           )}
         </ModalContent>
