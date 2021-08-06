@@ -49,7 +49,7 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
         <NextImage
           alt={image.description}
           height={image.height}
-          quality={50}
+          quality={20}
           // src={`/api/images/${image.filename}`}
           src={image.filename}
           width={image.width}
