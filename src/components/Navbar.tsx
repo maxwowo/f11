@@ -1,7 +1,8 @@
-import { HStack, Link, Text } from '@chakra-ui/react'
+import { HStack, Icon, Link, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/dist/client/router'
 import NextLink from 'next/link'
 import { FunctionComponent, memo } from 'react'
+import { FaInstagram } from 'react-icons/fa'
 
 const NAVBAR_ITEMS: {
   name: string
@@ -52,6 +53,13 @@ const Navbar: FunctionComponent = () => {
             </Link>
           </Text>
         ))}
+        <a
+          href="https://instagram.com/maxwowowowo"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Icon as={FaInstagram} height="20px" width="20px" />
+        </a>
       </HStack>
     </HStack>
   )
