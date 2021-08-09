@@ -47,7 +47,6 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
         onClick={() => handleImageSelect(image)}
       >
         <NextImage
-          alt={image.description}
           height={image.height}
           quality={20}
           // src={`/api/images/${image.filename}`}

@@ -1,5 +1,6 @@
 import {
   Box,
+  Image as ChakraImage,
   Modal,
   ModalContent,
   ModalOverlay,
@@ -9,7 +10,6 @@ import { Fragment, FunctionComponent, memo, useEffect, useState } from 'react'
 
 import { Image } from '../images'
 import MasonryImage from './MasonryImage'
-import SelectedImage from './SelectedImage'
 
 export const GUTTER_SIZE = [5, 10, 20, 35]
 
@@ -41,9 +41,14 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
           borderRadius={0}
           margin={0}
           maxWidth="unset"
+          opacity="0"
           width="unset"
         >
-          <SelectedImage selectedImage={selectedImage} />
+          <ChakraImage
+            maxHeight="85vh"
+            maxWidth="92vw"
+            src={selectedImage?.filename}
+          />
         </ModalContent>
       </Modal>
       <Box
