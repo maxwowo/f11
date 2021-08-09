@@ -36,7 +36,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
   return (
     <Fragment>
       <Modal isCentered isOpen={isOpen} onClose={() => selectImage(null)}>
-        <ModalOverlay />
+        <ModalOverlay background="rgba(255, 255, 255, 0.9)" />
         <ModalContent
           borderRadius={0}
           margin={0}

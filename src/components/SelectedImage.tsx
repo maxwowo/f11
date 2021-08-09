@@ -41,6 +41,7 @@ const SelectedImage: FunctionComponent<SelectedImageProps> = ({
         alt={selectedImage?.description}
         display={visible ? undefined : 'none'}
         maxHeight="85vh"
+        maxWidth="92vw"
         src={selectedImage?.filename}
         onError={handleImageLoad}
         onLoad={handleImageLoad}

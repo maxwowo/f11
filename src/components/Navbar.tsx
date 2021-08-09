@@ -35,7 +35,7 @@ const Navbar: FunctionComponent = () => {
           MAX WO
         </Link>
       </Text>
-      <HStack spacing="5vw">
+      <HStack display={['none', 'none', 'flex']} spacing="5vw">
         {NAVBAR_ITEMS.map((item) => (
           <Text
             key={item.link}
