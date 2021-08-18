@@ -3,7 +3,7 @@ module.exports = {
   rewrites: async () => [
     {
       source: '/api/images/:path*',
-      destination: 'https://files.maxwowo.com/file/maxwowo-f11/:path*',
+      destination: 'https://b2.maxwowo.com/file/maxwowo-f11/:path*',
     },
   ],
   // TODO: remove this once using actual images from Backblaze B2 bucket
