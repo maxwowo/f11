@@ -10,7 +10,9 @@ const Urban: NextPage = () => (
   <Fragment>
     <NextSeo canonical="https://f11.maxwowo.com/urban" title="f/11" />
     <Navbar />
-    <Masonry images={images.filter((image) => Tag.URBAN in image.tags)} />
+    <Masonry
+      images={images.filter((image) => image.tags.includes(Tag.URBAN))}
+    />
   </Fragment>
 )
 
