@@ -6,8 +6,7 @@ module.exports = {
       destination: 'https://b2.maxwowo.com/file/maxwowo-f11/:path*',
     },
   ],
-  // TODO: remove this once using actual images from Backblaze B2 bucket
-  images: {
-    domains: ['images.unsplash.com'],
-  },
+  // images: {
+  //   domains: ['b2.maxwowo.com'],
+  // },
 }
