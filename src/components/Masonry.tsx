@@ -35,20 +35,9 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
 
   return (
     <Fragment>
-      <Modal
-        isCentered
-        isOpen={isOpen}
-        motionPreset="scale"
-        onClose={() => selectImage(null)}
-      >
+      <Modal isCentered isOpen={isOpen} onClose={() => selectImage(null)}>
         <ModalOverlay background="rgba(255, 255, 255, 0.9)" />
-        <ModalContent
-          borderRadius={0}
-          margin={0}
-          maxWidth="unset"
-          opacity="0"
-          width="unset"
-        >
+        <ModalContent maxWidth="unset" width="unset">
           <ChakraImage
             maxHeight="85vh"
             maxWidth="92vw"
