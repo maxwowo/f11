@@ -1,6 +1,6 @@
+import { Image as ChakraImage } from '@chakra-ui/image'
 import { Box } from '@chakra-ui/layout'
 import { motion, useAnimation } from 'framer-motion'
-import NextImage from 'next/image'
 import { FunctionComponent, memo, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
@@ -46,12 +46,7 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
         mb={GUTTER_SIZE.map((size) => `${size}px`)}
         onClick={() => handleImageSelect(image)}
       >
-        <NextImage
-          height={image.height}
-          quality={100}
-          src={`/api/images/${image.filename}_thumbnail.webp`}
-          width={image.width}
-        />
+        <ChakraImage src={`/api/images/${image.filename}_thumbnail.webp`} />
       </Box>
     </motion.div>
   )
