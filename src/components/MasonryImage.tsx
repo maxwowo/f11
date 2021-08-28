@@ -48,8 +48,8 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
       >
         <NextImage
           height={image.height}
-          quality={20}
-          src={`/api/images/${image.filename}.webp`}
+          quality={100}
+          src={`/api/images/${image.filename}_thumbnail.webp`}
           width={image.width}
         />
       </Box>

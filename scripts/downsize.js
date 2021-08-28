@@ -2,7 +2,7 @@
 const sharp = require('sharp')
 const fg = require('fast-glob')
 
-const THUMBNAIL_WIDTH = 400
+const THUMBNAIL_WIDTH = 500
 const FULL_IMAGE_HEIGHT = 800
 
 const directory = process.argv[2]
