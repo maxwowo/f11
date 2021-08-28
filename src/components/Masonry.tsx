@@ -41,7 +41,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
           <ChakraImage
             maxHeight="85vh"
             maxWidth="92vw"
-            src={`/api/images/${selectedImage?.filename}`}
+            src={`/api/images/${selectedImage?.filename}.webp`}
           />
         </ModalContent>
       </Modal>
