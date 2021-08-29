@@ -7,14 +7,13 @@ import { useInView } from 'react-intersection-observer'
 import { Image } from '../images'
 
 export interface MasonryImageProps {
-  // handleImageSelect: (image: Image | null) => void
-  data: Image
+  data: {
+    image: Image
+    handleImageSelect: (image: Image | null) => void
+  }
 }
 
-const MasonryImage: FunctionComponent<MasonryImageProps> = ({
-  // handleImageSelect,
-  data,
-}) => {
+const MasonryImage: FunctionComponent<MasonryImageProps> = ({ data }) => {
   const controls = useAnimation()
   const [ref, inView] = useInView()
 
@@ -37,11 +36,10 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
         hidden: { opacity: 0, y: 20 },
       }}
     >
-      <Box
-        cursor="zoom-in"
-        // onClick={() => handleImageSelect(image)}
-      >
-        <ChakraImage src={`/api/images/${data.filename}.thumbnail.webp`} />
+      <Box cursor="zoom-in" onClick={() => data.handleImageSelect(data.image)}>
+        <ChakraImage
+          src={`/api/images/${data.image.filename}.thumbnail.webp`}
+        />
       </Box>
     </motion.div>
   )

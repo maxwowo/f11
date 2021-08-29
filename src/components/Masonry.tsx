@@ -25,6 +25,10 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
     '(max-width: 48em)',
     '(max-width: 62em)',
   ])
+  const masonryItems = images.map((image) => ({
+    image: image,
+    handleImageSelect: (image: Image | null) => selectImage(image),
+  }))
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [selectedImage, setSelectedImage] = useState<Image | null>(null)
 
@@ -52,15 +56,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
           />
         </ModalContent>
       </Modal>
-      <Box
-        {...rest}
-        mx="auto"
-        p="4vw"
-        // sx={{
-        //   columnCount: [2, 2, 3, 4],
-        //   columnGap: GUTTER_SIZE.map((size) => `${size}px`),
-        // }}
-      >
+      <Box {...rest} mx="auto" p="4vw">
         <MasonicMasonry
           columnCount={
             isSmallerThanSm ? 2 : isSmallerThanMd ? 2 : isSmallerThanLg ? 3 : 4
@@ -74,17 +70,10 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
               ? 20
               : 35
           }
-          items={images}
+          items={masonryItems}
           overscanBy={4}
           render={MasonryImage}
         />
-        {/* {images.map((image) => (
-            <MasonryImage
-              key={image.filename}
-              handleImageSelect={selectImage}
-              image={image}
-            />
-          ))} */}
       </Box>
     </Fragment>
   )
