@@ -39,7 +39,7 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({ data }) => {
       <Box
         _hover={{ opacity: '0.7' }}
         cursor="pointer"
-        transition="opacity 0.2s ease"
+        transition="opacity 0.3s ease"
         onClick={() => data.handleImageSelect(data.image)}
       >
         <ChakraImage
