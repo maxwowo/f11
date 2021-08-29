@@ -12,15 +12,15 @@ export interface Image {
 
 const images: Image[] = [
   {
-    filename: '9M8XydnQYLRJL4Lv3NcdRi',
+    filename: '27e302fd627b456aa775f5127152ba22',
     tags: [Tag.URBAN],
   },
   {
-    filename: 'qgP5fbFb3ew4foj45x5PtE',
+    filename: '49e2644dcc754319a47847ab9009c0ad',
     tags: [Tag.URBAN],
   },
   {
-    filename: 'f9PXcQLUKHNGtiY5pTaCZi',
+    filename: '241d0d38bdd94f21b67f6ea46086219a',
     tags: [Tag.URBAN],
   },
 ]
