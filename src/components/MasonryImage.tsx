@@ -5,16 +5,15 @@ import { FunctionComponent, memo, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 import { Image } from '../images'
-import { GUTTER_SIZE } from './Masonry'
 
 export interface MasonryImageProps {
-  image: Image
-  handleImageSelect: (image: Image | null) => void
+  // handleImageSelect: (image: Image | null) => void
+  data: Image
 }
 
 const MasonryImage: FunctionComponent<MasonryImageProps> = ({
-  image,
-  handleImageSelect,
+  // handleImageSelect,
+  data,
 }) => {
   const controls = useAnimation()
   const [ref, inView] = useInView()
@@ -40,13 +39,9 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
     >
       <Box
         cursor="zoom-in"
-        // TODO: remove this hack that neutralizes the extra whitespace added by NextImage's `display: inline` once a
-        // better fix is found
-        fontSize={0}
-        mb={GUTTER_SIZE.map((size) => `${size}px`)}
-        onClick={() => handleImageSelect(image)}
+        // onClick={() => handleImageSelect(image)}
       >
-        <ChakraImage src={`/api/images/${image.filename}.thumbnail.webp`} />
+        <ChakraImage src={`/api/images/${data.filename}.thumbnail.webp`} />
       </Box>
     </motion.div>
   )

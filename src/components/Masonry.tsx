@@ -5,7 +5,9 @@ import {
   ModalContent,
   ModalOverlay,
   useDisclosure,
+  useMediaQuery,
 } from '@chakra-ui/react'
+import { Masonry as MasonicMasonry } from 'masonic'
 import { Fragment, FunctionComponent, memo, useEffect, useState } from 'react'
 
 import { Image } from '../images'
@@ -18,6 +20,11 @@ export interface MasonryProps {
 }
 
 const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
+  const [isSmallerThanSm, isSmallerThanMd, isSmallerThanLg] = useMediaQuery([
+    '(max-width: 30em)',
+    '(max-width: 48em)',
+    '(max-width: 62em)',
+  ])
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [selectedImage, setSelectedImage] = useState<Image | null>(null)
 
@@ -49,18 +56,35 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
         {...rest}
         mx="auto"
         p="4vw"
-        sx={{
-          columnCount: [2, 2, 3, 4],
-          columnGap: GUTTER_SIZE.map((size) => `${size}px`),
-        }}
+        // sx={{
+        //   columnCount: [2, 2, 3, 4],
+        //   columnGap: GUTTER_SIZE.map((size) => `${size}px`),
+        // }}
       >
-        {images.map((image) => (
-          <MasonryImage
-            key={image.filename}
-            handleImageSelect={selectImage}
-            image={image}
-          />
-        ))}
+        <MasonicMasonry
+          columnCount={
+            isSmallerThanSm ? 2 : isSmallerThanMd ? 2 : isSmallerThanLg ? 3 : 4
+          }
+          columnGutter={
+            isSmallerThanSm
+              ? 5
+              : isSmallerThanMd
+              ? 10
+              : isSmallerThanLg
+              ? 20
+              : 35
+          }
+          items={images}
+          overscanBy={4}
+          render={MasonryImage}
+        />
+        {/* {images.map((image) => (
+            <MasonryImage
+              key={image.filename}
+              handleImageSelect={selectImage}
+              image={image}
+            />
+          ))} */}
       </Box>
     </Fragment>
   )
