@@ -43,6 +43,10 @@ const images: Image[] = [
     filename: '241d0d38bdd94f21b67f6ea46086219a',
     tags: [Tag.URBAN],
   },
+  {
+    filename: 'ec349c1f7c4b4e2092bb1d92d6819277',
+    tags: [Tag.PORTRAIT],
+  },
 ]
 
 export default images
