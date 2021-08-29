@@ -12,15 +12,15 @@ export interface Image {
 
 const images: Image[] = [
   {
-    filename: '2021_08_18_sky_tower_new_world_cbd',
+    filename: '9M8XydnQYLRJL4Lv3NcdRi',
     tags: [Tag.URBAN],
   },
   {
-    filename: '2021_08_18_beach_takapuna',
+    filename: 'qgP5fbFb3ew4foj45x5PtE',
     tags: [Tag.URBAN],
   },
   {
-    filename: '2021_08_18_palm_trees_takapuna',
+    filename: 'f9PXcQLUKHNGtiY5pTaCZi',
     tags: [Tag.URBAN],
   },
 ]

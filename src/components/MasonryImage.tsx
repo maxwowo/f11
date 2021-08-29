@@ -46,7 +46,7 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
         mb={GUTTER_SIZE.map((size) => `${size}px`)}
         onClick={() => handleImageSelect(image)}
       >
-        <ChakraImage src={`/api/images/${image.filename}_thumbnail.webp`} />
+        <ChakraImage src={`/api/images/${image.filename}.thumbnail.webp`} />
       </Box>
     </motion.div>
   )

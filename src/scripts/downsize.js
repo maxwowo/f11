@@ -15,7 +15,7 @@ for (const file of files) {
   sharp(file)
     .resize({ width: THUMBNAIL_WIDTH })
     .webp({ quality: 100 })
-    .toFile(`${directory}/${filename}_thumbnail.webp`)
+    .toFile(`${directory}/${filename}.thumbnail.webp`)
 
   sharp(file)
     .resize({ height: FULL_IMAGE_HEIGHT })
