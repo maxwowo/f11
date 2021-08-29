@@ -36,7 +36,12 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({ data }) => {
         hidden: { opacity: 0, y: 20 },
       }}
     >
-      <Box cursor="zoom-in" onClick={() => data.handleImageSelect(data.image)}>
+      <Box
+        _hover={{ opacity: '0.7' }}
+        cursor="pointer"
+        transition="opacity 0.2s ease"
+        onClick={() => data.handleImageSelect(data.image)}
+      >
         <ChakraImage
           src={`/api/images/${data.image.filename}.thumbnail.webp`}
         />
