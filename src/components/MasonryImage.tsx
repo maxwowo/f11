@@ -1,32 +1,38 @@
 import { Image as ChakraImage } from '@chakra-ui/image'
 import { Box } from '@chakra-ui/layout'
-import { Link, Skeleton } from '@chakra-ui/react'
+import { Link, Skeleton, useBoolean } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import { FunctionComponent, memo, useState } from 'react'
+import { FunctionComponent, memo } from 'react'
 
 import { Image } from '../images'
 
 export interface MasonryImageProps {
   data: Image
+  width: number
 }
 
 const MasonryImage: FunctionComponent<MasonryImageProps> = ({
   data: image,
+  width,
 }) => {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useBoolean()
 
   return (
-    <Skeleton isLoaded={isLoaded}>
+    <Skeleton
+      height={(width * image.thumbnail.height) / image.thumbnail.width}
+      isLoaded={isLoaded}
+      width={width}
+    >
       <Box
-        _hover={{ opacity: '0.8' }}
+        _hover={{ opacity: '0.7' }}
         cursor="pointer"
         transition="opacity 0.2s ease"
-        onClick={() => console.log(`${image.filename} clicked`)}
       >
         <Link as={NextLink} href={`/images/${image.filename}`}>
           <ChakraImage
+            borderRadius="2px"
             src={`/api/images/${image.filename}.thumbnail.webp`}
-            onLoad={() => setIsLoaded(true)}
+            onLoad={setIsLoaded.on}
           />
         </Link>
       </Box>
