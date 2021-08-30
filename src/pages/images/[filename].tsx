@@ -1,9 +1,11 @@
+import { Image as ChakraImage } from '@chakra-ui/image'
 import { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import Error from 'next/error'
 import { NextSeo } from 'next-seo'
 import { Fragment, memo } from 'react'
 
+import Navbar from '../../components/Navbar'
 import images from '../../images'
 
 const Image: NextPage = () => {
@@ -20,6 +22,8 @@ const Image: NextPage = () => {
   return (
     <Fragment>
       <NextSeo title="f/11" />
+      <Navbar />
+      <ChakraImage src={`/api/images/${filename}.webp`} />
     </Fragment>
   )
 }
