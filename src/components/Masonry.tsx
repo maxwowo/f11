@@ -11,7 +11,7 @@ export interface MasonryProps {
   images: Image[]
 }
 
-const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
+const Masonry: FunctionComponent<MasonryProps> = ({ images }) => {
   const [isSmallerThanSm, isSmallerThanMd, isSmallerThanLg] = useMediaQuery([
     '(max-width: 30em)',
     '(max-width: 48em)',
@@ -30,7 +30,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
           />
         </ModalContent>
       </Modal> */}
-      <Box {...rest} mx="auto" p="4vw">
+      <Box mx="auto" p="4vw">
         <MasonicMasonry
           columnCount={
             isSmallerThanSm ? 2 : isSmallerThanMd ? 2 : isSmallerThanLg ? 3 : 4
