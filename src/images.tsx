@@ -80,11 +80,11 @@ const images: Image[] = [
     },
   },
   {
-    filename: 'ec349c1f7c4b4e2092bb1d92d6819277',
+    filename: 'd94077c1954a4af0b56928ae548a4cc4',
     tags: [Tag.PORTRAIT],
     thumbnail: {
       width: 500,
-      height: 886,
+      height: 750,
     },
   },
 ]
