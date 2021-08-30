@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import Error from 'next/error'
 import { NextSeo } from 'next-seo'
-import { Fragment, memo } from 'react'
+import { Fragment } from 'react'
 
 import Navbar from '../../components/Navbar'
 import images from '../../images'
@@ -28,4 +28,4 @@ const Image: NextPage = () => {
   )
 }
 
-export default memo(Image)
+export default Image
