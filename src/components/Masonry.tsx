@@ -1,14 +1,6 @@
-import {
-  Box,
-  Image as ChakraImage,
-  Modal,
-  ModalContent,
-  ModalOverlay,
-  useDisclosure,
-  useMediaQuery,
-} from '@chakra-ui/react'
+import { Box, useMediaQuery } from '@chakra-ui/react'
 import { Masonry as MasonicMasonry } from 'masonic'
-import { Fragment, FunctionComponent, memo, useEffect, useState } from 'react'
+import { Fragment, FunctionComponent, memo } from 'react'
 
 import { Image } from '../images'
 import MasonryImage from './MasonryImage'
@@ -25,28 +17,10 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
     '(max-width: 48em)',
     '(max-width: 62em)',
   ])
-  const masonryItems = images.map((image) => ({
-    image: image,
-    handleImageSelect: (image: Image | null) => selectImage(image),
-  }))
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [selectedImage, setSelectedImage] = useState<Image | null>(null)
-
-  useEffect(() => {
-    if (selectedImage === null) {
-      onClose()
-    } else {
-      onOpen()
-    }
-  }, [selectedImage, onOpen, onClose])
-
-  const selectImage = (image: Image | null) => {
-    setSelectedImage(image)
-  }
 
   return (
     <Fragment>
-      <Modal isCentered isOpen={isOpen} onClose={() => selectImage(null)}>
+      {/* <Modal isCentered isOpen={isOpen} onClose={() => selectImage(null)}>
         <ModalOverlay background="rgba(255, 255, 255, 0.9)" />
         <ModalContent maxWidth="unset" width="unset">
           <ChakraImage
@@ -55,7 +29,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
             src={`/api/images/${selectedImage?.filename}.webp`}
           />
         </ModalContent>
-      </Modal>
+      </Modal> */}
       <Box {...rest} mx="auto" p="4vw">
         <MasonicMasonry
           columnCount={
@@ -70,7 +44,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images, ...rest }) => {
               ? 20
               : 35
           }
-          items={masonryItems}
+          items={images}
           overscanBy={4}
           render={MasonryImage}
         />

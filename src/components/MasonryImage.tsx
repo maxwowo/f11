@@ -5,20 +5,19 @@ import { FunctionComponent, memo } from 'react'
 import { Image } from '../images'
 
 export interface MasonryImageProps {
-  data: {
-    image: Image
-    handleImageSelect: (image: Image | null) => void
-  }
+  data: Image
 }
 
-const MasonryImage: FunctionComponent<MasonryImageProps> = ({ data }) => (
+const MasonryImage: FunctionComponent<MasonryImageProps> = ({
+  data: image,
+}) => (
   <Box
     _hover={{ opacity: '0.8' }}
     cursor="pointer"
     transition="opacity 0.2s ease"
-    onClick={() => data.handleImageSelect(data.image)}
+    onClick={() => console.log(`${image.filename} clicked`)}
   >
-    <ChakraImage src={`/api/images/${data.image.filename}.thumbnail.webp`} />
+    <ChakraImage src={`/api/images/${image.filename}.thumbnail.webp`} />
   </Box>
 )
 
