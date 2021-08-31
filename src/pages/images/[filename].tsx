@@ -35,11 +35,12 @@ const Image: NextPage = () => {
             ? windowSize.height - navbarHeight
             : undefined
         }
+        px="4.5vw"
       >
         <ChakraImage
+          borderRadius="2px"
           maxHeight="100%"
           mb="2.5vw"
-          px="4.5vw"
           src={`/api/images/${filename}.webp`}
         />
       </Center>
