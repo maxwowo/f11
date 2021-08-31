@@ -1,7 +1,7 @@
 import { HStack, Icon, Link, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/dist/client/router'
 import NextLink from 'next/link'
-import { forwardRef, memo } from 'react'
+import { FunctionComponent, memo, useEffect, useRef } from 'react'
 import { FaInstagram } from 'react-icons/fa'
 
 const NAVBAR_ITEMS: {
@@ -26,12 +26,23 @@ const NAVBAR_ITEMS: {
   },
 ]
 
-// eslint-disable-next-line react/display-name
-const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
+interface NavbarProps {
+  setNavbarHeight?: (height?: number) => void
+}
+
+const Navbar: FunctionComponent<NavbarProps> = ({ setNavbarHeight }) => {
   const router = useRouter()
 
+  const stackRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (setNavbarHeight) {
+      setNavbarHeight(stackRef.current?.clientHeight)
+    }
+  }, [setNavbarHeight])
+
   return (
-    <HStack ref={ref} justify="space-between" px="4vw" py="2.5vw">
+    <HStack ref={stackRef} justify="space-between" px="4vw" py="2.5vw">
       <Text fontFamily="Abel" fontSize="4xl" fontWeight="600">
         <Link as={NextLink} href="/">
           MAX WO
@@ -64,6 +75,6 @@ const Navbar = forwardRef<HTMLDivElement>((_, ref) => {
       </HStack>
     </HStack>
   )
-})
+}
 
 export default memo(Navbar)

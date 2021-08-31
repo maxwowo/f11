@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import Error from 'next/error'
 import { NextSeo } from 'next-seo'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useState } from 'react'
 
 import Navbar from '../../components/Navbar'
 import useWindowSize from '../../hooks/useWindowSize'
@@ -18,13 +18,7 @@ const Image: NextPage = () => {
 
   const windowSize = useWindowSize()
 
-  const navbarRef = useRef<HTMLDivElement>(null)
-
   const [navbarHeight, setNavbarHeight] = useState<number>()
-
-  useEffect(() => {
-    setNavbarHeight(navbarRef.current?.clientHeight)
-  }, [])
 
   // Image with corresponding filename not found
   if (imageIndex === -1) {
@@ -34,7 +28,7 @@ const Image: NextPage = () => {
   return (
     <Fragment>
       <NextSeo title="f/11" />
-      <Navbar ref={navbarRef} />
+      <Navbar setNavbarHeight={setNavbarHeight} />
       <Center
         height={
           windowSize.height && navbarHeight
