@@ -7,6 +7,7 @@ import { NextSeo } from 'next-seo'
 import { Fragment, useEffect, useRef, useState } from 'react'
 
 import Navbar from '../../components/Navbar'
+import useWindowSize from '../../hooks/useWindowSize'
 import images from '../../images'
 
 const Image: NextPage = () => {
@@ -14,6 +15,8 @@ const Image: NextPage = () => {
   const { filename } = router.query
 
   const imageIndex = images.findIndex((image) => image.filename === filename)
+
+  const windowSize = useWindowSize()
 
   const navbarRef = useRef<HTMLDivElement>(null)
 
@@ -32,7 +35,13 @@ const Image: NextPage = () => {
     <Fragment>
       <NextSeo title="f/11" />
       <Navbar ref={navbarRef} />
-      <Center height={`calc(100vh - ${navbarHeight}px)`}>
+      <Center
+        height={
+          windowSize.height && navbarHeight
+            ? windowSize.height - navbarHeight
+            : undefined
+        }
+      >
         <ChakraImage
           borderRadius="2px"
           maxHeight="100%"
