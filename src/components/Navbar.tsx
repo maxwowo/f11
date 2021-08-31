@@ -41,6 +41,20 @@ const Navbar: FunctionComponent<NavbarProps> = ({ setNavbarHeight }) => {
     }
   }, [setNavbarHeight])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (setNavbarHeight) {
+        setNavbarHeight(stackRef.current?.clientHeight)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    handleResize()
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [setNavbarHeight])
+
   return (
     <HStack ref={stackRef} justify="space-between" px="4vw" py="2.5vw">
       <Text fontFamily="Abel" fontSize="4xl" fontWeight="600">

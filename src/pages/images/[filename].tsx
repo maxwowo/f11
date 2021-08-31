@@ -47,7 +47,7 @@ const Image: NextPage = () => {
             ? windowSize.height - navbarHeight
             : undefined
         }
-        px="4.5vw"
+        px="4vw"
       >
         {imageUrl ? (
           <ChakraImage maxHeight="90%" src={imageUrl} />
