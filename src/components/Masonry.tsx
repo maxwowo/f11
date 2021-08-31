@@ -20,16 +20,6 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images }) => {
 
   return (
     <Fragment>
-      {/* <Modal isCentered isOpen={isOpen} onClose={() => selectImage(null)}>
-        <ModalOverlay background="rgba(255, 255, 255, 0.9)" />
-        <ModalContent maxWidth="unset" width="unset">
-          <ChakraImage
-            maxHeight="85vh"
-            maxWidth="92vw"
-            src={`/api/images/${selectedImage?.filename}.webp`}
-          />
-        </ModalContent>
-      </Modal> */}
       <Box mx="auto" p="4vw">
         <MasonicMasonry
           columnCount={
