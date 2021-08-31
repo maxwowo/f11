@@ -29,10 +29,12 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
         transition="opacity 0.2s ease"
       >
         <Link as={NextLink} href={`/images/${image.filename}`}>
-          <ChakraImage
-            src={`/api/images/${image.filename}.thumbnail.webp`}
-            onLoad={setIsLoaded.on}
-          />
+          <a>
+            <ChakraImage
+              src={`/api/images/${image.filename}.thumbnail.webp`}
+              onLoad={setIsLoaded.on}
+            />
+          </a>
         </Link>
       </Box>
     </Skeleton>
