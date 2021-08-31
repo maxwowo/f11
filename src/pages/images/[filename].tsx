@@ -1,10 +1,10 @@
 import { Image as ChakraImage } from '@chakra-ui/image'
-import { Center } from '@chakra-ui/react'
+import { Center, Spinner } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import Error from 'next/error'
 import { NextSeo } from 'next-seo'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 import Navbar from '../../components/Navbar'
 import useWindowSize from '../../hooks/useWindowSize'
@@ -19,6 +19,25 @@ const Image: NextPage = () => {
   const windowSize = useWindowSize()
 
   const [navbarHeight, setNavbarHeight] = useState<number>()
+  const [imageUrl, setImageUrl] = useState<string>()
+
+  useEffect(() => {
+    let disposed = false
+
+    ;(async () => {
+      const fetched = await fetch(`/api/images/${filename}.webp`)
+
+      if (disposed) {
+        return
+      }
+
+      setImageUrl(URL.createObjectURL(await fetched.blob()))
+    })()
+
+    return () => {
+      disposed = true
+    }
+  }, [filename])
 
   // Image with corresponding filename not found
   if (imageIndex === -1) {
@@ -37,12 +56,16 @@ const Image: NextPage = () => {
         }
         px="4.5vw"
       >
-        <ChakraImage
-          borderRadius="2px"
-          maxHeight="100%"
-          mb="2.5vw"
-          src={`/api/images/${filename}.webp`}
-        />
+        {imageUrl ? (
+          <ChakraImage
+            borderRadius="2px"
+            maxHeight="100%"
+            mb="2.5vw"
+            src={imageUrl}
+          />
+        ) : (
+          <Spinner size="lg" />
+        )}
       </Center>
     </Fragment>
   )
