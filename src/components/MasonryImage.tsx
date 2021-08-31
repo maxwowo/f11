@@ -30,7 +30,6 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
       >
         <Link as={NextLink} href={`/images/${image.filename}`}>
           <ChakraImage
-            borderRadius="2px"
             src={`/api/images/${image.filename}.thumbnail.webp`}
             onLoad={setIsLoaded.on}
           />

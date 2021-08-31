@@ -43,9 +43,8 @@ const Image: NextPage = () => {
         }
       >
         <ChakraImage
-          borderRadius="2px"
           maxHeight="100%"
-          pb="2.5vw"
+          mb="2.5vw"
           px="4.5vw"
           src={`/api/images/${filename}.webp`}
         />
