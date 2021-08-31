@@ -23,7 +23,7 @@ const Image: NextPage = () => {
     <Fragment>
       <NextSeo title="f/11" />
       <Navbar />
-      <ChakraImage src={`/api/images/${filename}.webp`} />
+      <ChakraImage borderRadius="2px" src={`/api/images/${filename}.webp`} />
     </Fragment>
   )
 }
