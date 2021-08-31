@@ -1,6 +1,6 @@
 import { Image as ChakraImage } from '@chakra-ui/image'
 import { Box } from '@chakra-ui/layout'
-import { Link, Skeleton, useBoolean } from '@chakra-ui/react'
+import { Skeleton, useBoolean } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { FunctionComponent, memo } from 'react'
 
@@ -29,14 +29,19 @@ const MasonryImage: FunctionComponent<MasonryImageProps> = ({
         cursor="pointer"
         transition="opacity 0.2s ease"
       >
-        <Link as={NextLink} href={`/images/${image.filename}`}>
+        <NextLink
+          href={{
+            pathname: `/images/[filename]`,
+            query: { filename: image.filename },
+          }}
+        >
           <a>
             <ChakraImage
               src={`/api/images/${image.filename}.thumbnail.webp`}
               onLoad={setIsLoaded.on}
             />
           </a>
-        </Link>
+        </NextLink>
       </Box>
     </Skeleton>
   )
