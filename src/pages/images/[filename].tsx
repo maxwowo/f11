@@ -50,7 +50,7 @@ const Image: NextPage = () => {
         px="4.5vw"
       >
         {imageUrl ? (
-          <ChakraImage maxHeight="100%" mb="2.5vw" src={imageUrl} />
+          <ChakraImage maxHeight="90%" src={imageUrl} />
         ) : (
           <Spinner size="lg" />
         )}
