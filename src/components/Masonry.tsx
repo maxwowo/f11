@@ -20,7 +20,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images }) => {
 
   return (
     <Fragment>
-      <Box mx="auto" p="4vw">
+      <Box mx="auto" outline="none" p="4vw">
         <MasonicMasonry
           columnCount={
             isSmallerThanSm ? 2 : isSmallerThanMd ? 2 : isSmallerThanLg ? 3 : 4
@@ -37,6 +37,9 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images }) => {
           items={images}
           overscanBy={4}
           render={MasonryImage}
+          style={{
+            outline: 'none',
+          }}
         />
       </Box>
     </Fragment>
