@@ -1,7 +1,7 @@
 import { HStack, Icon, Link, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/dist/client/router'
 import NextLink from 'next/link'
-import { FunctionComponent, memo, useEffect, useRef } from 'react'
+import { FunctionComponent, memo } from 'react'
 import { FaInstagram } from 'react-icons/fa'
 
 const NAVBAR_ITEMS: {
@@ -26,37 +26,11 @@ const NAVBAR_ITEMS: {
   },
 ]
 
-interface NavbarProps {
-  setNavbarHeight?: (height?: number) => void
-}
-
-const Navbar: FunctionComponent<NavbarProps> = ({ setNavbarHeight }) => {
+const Navbar: FunctionComponent = () => {
   const router = useRouter()
 
-  const stackRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (setNavbarHeight) {
-      setNavbarHeight(stackRef.current?.clientHeight)
-    }
-  }, [setNavbarHeight])
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (setNavbarHeight) {
-        setNavbarHeight(stackRef.current?.clientHeight)
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    handleResize()
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [setNavbarHeight])
-
   return (
-    <HStack ref={stackRef} justify="space-between" px="4vw" py="2.5vw">
+    <HStack justify="space-between" px="4vw" py="2.5vw">
       <Text fontFamily="Abel" fontSize="4xl" fontWeight="600">
         <Link as={NextLink} href="/">
           MAX WO
