@@ -15,7 +15,7 @@ import MasonryImage from './MasonryImage'
 
 export const GUTTER_SIZE = [5, 10, 20, 35]
 
-export interface MasonryProps {
+interface MasonryProps {
   images: Image[]
 }
 
@@ -61,7 +61,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images }) => {
           />
         </ModalContent>
       </Modal>
-      <Box mx="auto" outline="none" p="4vw">
+      <Box _focus={{ tabIndex: 'none' }} mx="auto" outline="none" p="4vw">
         <MasonicMasonry
           columnCount={
             isSmallerThanSm ? 2 : isSmallerThanMd ? 2 : isSmallerThanLg ? 3 : 4

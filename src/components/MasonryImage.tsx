@@ -5,7 +5,7 @@ import { FunctionComponent, memo } from 'react'
 
 import { Image } from '../images'
 
-export interface MasonryImageProps {
+interface MasonryImageProps {
   data: {
     image: Image
     handleImageSelect: (image: Image) => void
