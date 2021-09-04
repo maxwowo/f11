@@ -59,7 +59,7 @@ const Masonry: FunctionComponent<MasonryProps> = ({ images }) => {
         onClose={onModalClose}
       >
         <ModalOverlay background="rgba(255, 255, 255, 0.9)" />
-        <ModalContent maxWidth="unset" width="unset">
+        <ModalContent background="transparent" maxWidth="unset" width="unset">
           <ChakraImage
             maxHeight="85vh"
             maxWidth="92vw"
