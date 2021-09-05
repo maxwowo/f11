@@ -7,11 +7,13 @@ import { FaInstagram } from 'react-icons/fa'
 
 import { NavbarItem } from './Navbar'
 
-interface DesktopNavbarProps {
+interface DesktopNavbarItemsProps {
   items: NavbarItem[]
 }
 
-const DesktopNavbar: FunctionComponent<DesktopNavbarProps> = ({ items }) => {
+const DesktopNavbarItems: FunctionComponent<DesktopNavbarItemsProps> = ({
+  items,
+}) => {
   const router = useRouter()
 
   return (
@@ -43,4 +45,4 @@ const DesktopNavbar: FunctionComponent<DesktopNavbarProps> = ({ items }) => {
   )
 }
 
-export default memo(DesktopNavbar)
+export default memo(DesktopNavbarItems)
