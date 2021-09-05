@@ -35,18 +35,12 @@ const HamburgerIcon: FunctionComponent<HamburgerIconProps & FlexProps> = ({
     <Box cursor="pointer" height="100%" width="100%" onClick={handleOpenToggle}>
       <Box
         {...HAMBURGER_LAYER_STYLES}
-        transform={
-          isOpen ? 'translatex(3.5px) rotate(-135deg)' : 'translatey(-5.5px)'
-        }
-        width={isOpen ? '28px' : undefined}
+        transform={isOpen ? 'rotate(-135deg)' : 'translatey(-5.5px)'}
       />
       <Box {...HAMBURGER_LAYER_STYLES} transform="scale(0)" />
       <Box
         {...HAMBURGER_LAYER_STYLES}
-        transform={
-          isOpen ? 'translatex(3.5px) rotate(135deg)' : 'translatey(5.5px)'
-        }
-        width={isOpen ? '28px' : undefined}
+        transform={isOpen ? 'rotate(135deg)' : 'translatey(5.5px)'}
       />
     </Box>
   </Flex>
