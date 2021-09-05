@@ -1,4 +1,5 @@
-import { FunctionComponent, memo } from 'react'
+import { useDisclosure } from '@chakra-ui/hooks'
+import { Fragment, FunctionComponent, memo } from 'react'
 
 import HamburgerIcon from './HamburgerIcon'
 import { NavbarItem } from './Navbar'
@@ -8,7 +9,17 @@ interface MobileNavbarProps {
 }
 
 const MobileNavbar: FunctionComponent<MobileNavbarProps> = () => {
-  return <HamburgerIcon display={{ md: 'none' }} />
+  const { isOpen, onToggle: toggleOpen } = useDisclosure()
+
+  return (
+    <Fragment>
+      <HamburgerIcon
+        display={{ md: 'none' }}
+        handleOpenToggle={toggleOpen}
+        isOpen={isOpen}
+      />
+    </Fragment>
+  )
 }
 
 export default memo(MobileNavbar)

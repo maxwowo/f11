@@ -14,7 +14,16 @@ const HAMBURGER_LAYER_STYLES: BoxProps = {
   willChange: 'transform, width',
 }
 
-const HamburgerIcon: FunctionComponent<FlexProps> = ({ ...rest }) => (
+interface HamburgerIconProps {
+  isOpen: boolean
+  handleOpenToggle: () => void
+}
+
+const HamburgerIcon: FunctionComponent<HamburgerIconProps & FlexProps> = ({
+  isOpen,
+  handleOpenToggle,
+  ...rest
+}) => (
   <Flex
     {...rest}
     align="center"
@@ -23,10 +32,22 @@ const HamburgerIcon: FunctionComponent<FlexProps> = ({ ...rest }) => (
     position="relative"
     width="35px"
   >
-    <Box cursor="pointer" height="100%" width="100%">
-      <Box {...HAMBURGER_LAYER_STYLES} transform="translatey(-5.5px)" />
+    <Box cursor="pointer" height="100%" width="100%" onClick={handleOpenToggle}>
+      <Box
+        {...HAMBURGER_LAYER_STYLES}
+        transform={
+          isOpen ? 'translatex(3.5px) rotate(-135deg)' : 'translatey(-5.5px)'
+        }
+        width={isOpen ? '28px' : undefined}
+      />
       <Box {...HAMBURGER_LAYER_STYLES} transform="scale(0)" />
-      <Box {...HAMBURGER_LAYER_STYLES} transform="translatey(5.5px)" />
+      <Box
+        {...HAMBURGER_LAYER_STYLES}
+        transform={
+          isOpen ? 'translatex(3.5px) rotate(135deg)' : 'translatey(5.5px)'
+        }
+        width={isOpen ? '28px' : undefined}
+      />
     </Box>
   </Flex>
 )
