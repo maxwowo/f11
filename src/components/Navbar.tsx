@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 import { FunctionComponent, memo } from 'react'
 
 import DesktopNavbar from './DesktopNavbar'
-import HamburgerIcon from './HamburgerIcon'
+import MobileNavbar from './MobileNavbar'
 
 export interface NavbarItem {
   name: string
@@ -37,7 +37,7 @@ const Navbar: FunctionComponent = () => (
       </Link>
     </Text>
     <DesktopNavbar items={NAVBAR_ITEMS} />
-    <HamburgerIcon display={{ md: 'none' }} />
+    <MobileNavbar items={NAVBAR_ITEMS} />
   </HStack>
 )
 
