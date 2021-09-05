@@ -4,6 +4,8 @@ import NextLink from 'next/link'
 import { FunctionComponent, memo } from 'react'
 import { FaInstagram } from 'react-icons/fa'
 
+import HamburgerIcon from './HamburgerIcon'
+
 const NAVBAR_ITEMS: {
   name: string
   link: string
@@ -61,6 +63,7 @@ const Navbar: FunctionComponent = () => {
           <Icon as={FaInstagram} height="20px" width="20px" />
         </a>
       </HStack>
+      <HamburgerIcon display={{ md: 'none' }} />
     </HStack>
   )
 }
