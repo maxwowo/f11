@@ -4,14 +4,11 @@ import { FunctionComponent, memo } from 'react'
 const HAMBURGER_LAYER_STYLES: BoxProps = {
   backgroundColor: 'black',
   position: 'absolute',
-  display: 'block',
   inset: 0,
   margin: 'auto',
-  width: '100%',
   height: '1px',
   transition:
     'transform 250ms cubic-bezier(0.2, 0.6, 0.3, 1), width 250ms cubic-bezier(0.2, 0.6, 0.3, 1)',
-  willChange: 'transform, width',
 }
 
 interface HamburgerIconProps {
@@ -24,14 +21,7 @@ const HamburgerIcon: FunctionComponent<HamburgerIconProps & FlexProps> = ({
   handleOpenToggle,
   ...rest
 }) => (
-  <Flex
-    {...rest}
-    align="center"
-    height="35px"
-    justify="center"
-    position="relative"
-    width="35px"
-  >
+  <Flex {...rest} height="35px" position="relative" width="35px">
     <Box cursor="pointer" height="100%" width="100%" onClick={handleOpenToggle}>
       <Box
         {...HAMBURGER_LAYER_STYLES}
